@@ -58,9 +58,3 @@ docs/source/changelog.md
 
 .jupyter_releaser_checkout
 {"mode":"full","isActive":false}
-/data_science_track/datasets/
-/data_science_track/.ipynb_checkpoints/
-/machine_learning_track/case_study/.ipynb_checkpoints/
-/machine_learning_track/case_study/datasets/
-/statistics/datasets/
-/machine_learning_track/trees/datasets/
