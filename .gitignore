@@ -53,6 +53,8 @@ geckodriver.log
 .history
 .vscode
 
+notes.txt
+
 # copied changelog
 docs/source/changelog.md
 
