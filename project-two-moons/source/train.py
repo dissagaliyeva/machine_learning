@@ -1,6 +1,5 @@
 from __future__ import print_function  # future proof
 import argparse
-import sys
 import os
 import json
 

@@ -1,12 +1,8 @@
 import argparse
 import os
-import sys
-import pandas as pd
 import numpy as np
 
 import torch
-import torch.nn as nn
-import torch.optim as optim
 import torch.utils.data
 
 from io import StringIO
