@@ -68,7 +68,7 @@ def train(model, train_loader, epochs, optimizer, criterion, device):
     train_loader - The PyTorch DataLoader that should be used during training.
     epochs       - The total number of epochs to train for.
     optimizer    - The optimizer to use during training.
-    criterion    - The loss function used for training. 
+    criterion    - The loss function used for training.
     device       - Where the model and data should be loaded (gpu or cpu).
     """
 
@@ -141,11 +141,11 @@ if __name__ == '__main__':
 
     # TODO: Add args for the three model parameters: input_dim, hidden_dim, output_dim
     # Model parameters
-    parser.add_argument('--input-dim', type=int, default=2, metavar='N',
+    parser.add_argument('--input_dim', type=int, default=2, metavar='IN',
                         help='input dimensions for model initialization')
-    parser.add_argument('--hidden-dim', type=int, default=10, metavar='N',
+    parser.add_argument('--hidden_dim', type=int, default=10, metavar='H',
                         help='hidden dimensions for model initialization')
-    parser.add_argument('--output-dim', type=int, default=1, metavar='N',
+    parser.add_argument('--output_dim', type=int, default=1, metavar='OUT',
                         help='final output number for classification')
 
     args = parser.parse_args()
@@ -164,15 +164,17 @@ if __name__ == '__main__':
     # To get params from the parser, call args.argument_name, ex. args.epochs or ards.hidden_dim
     # Don't forget to move your model .to(device) to move to GPU , if appropriate
     model = SimpleNet(args.input_dim, args.hidden_dim, args.output_dim)
+    # move to GPU if applicable
     model.to(device)
 
     # Given: save the parameters used to construct the model
     save_model_params(model, args.model_dir)
 
     # TODO: Define an optimizer and loss function for training
-    optimizer = optim.SGD(model.parameters(), lr=0.01)
-    criterion = nn.CrossEntropyLoss()
+    optimizer = optim.SGD(model.parameters(), lr=args.lr)
+    criterion = nn.BCELoss()
 
     # Trains the model (given line of code, which calls the above training function)
     # This function *also* saves the model state dictionary
     train(model, train_loader, args.epochs, optimizer, criterion, device)
+
